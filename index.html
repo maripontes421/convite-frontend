@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confirme sua presença</title>
+  <link rel="stylesheet" href="style.css" />
+
+<body>
+  <div class="container">
+    <div class="titulo">Confirme<br>sua presença</div>
+
+    <form id="rsvpForm" action="obrigado.html">
+      <label for="name">Nome completo:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="telefone">Telefone:</label>
+      <input type="telefone" id="telefone" name="telefone" required />
+
+
+
+      <div class="formulario">
+        <label class="pergunta">Tem acompanhante(s)?</label>
+        <div class="opcoes-linha">
+          <label class="sim">
+            <input type="radio" name="acompanhante" value="sim" id="sim"> Sim
+          </label>
+          <label class="nao">
+            <input type="radio" name="acompanhante" value="nao" id="nao"> Não
+          </label>
+        </div>
+      </div>
+
+
+
+      <div id="dvAcompanhante" style="display: none;">
+        <label for="acompanhante">Nome do(s) acompanhante(s)</label>
+        <textarea id="acompanhante" name="acompanhante" required></textarea>
+      </div>
+
+
+
+
+
+      <div class="info">
+        <div class="info-item">
+          <hr />
+          <span>SÁBADO</span>
+          <hr />
+        </div>
+        <div class="info-item">
+
+          <span>OUT<br>25<br>2025</span>
+
+        </div>
+        <div class="info-item">
+          <hr />
+          <span>20 HRS</span>
+          <hr />
+        </div>
+      </div>
+
+      <div class="local">LOCAL
+        <p>Av. Dom Pedro II, 2430 - Campestre, Santo André - SP</p>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+
+  <script>
+    // Espera o DOM carregar
+    document.addEventListener("DOMContentLoaded", function () {
+      const simRadio = document.getElementById("sim");
+      const naoRadio = document.getElementById("nao");
+      const divAcompanhante = document.getElementById("dvAcompanhante");
+
+      // Esconde inicialmente (caso não esteja já via CSS inline)
+      divAcompanhante.style.display = "none";
+
+      // Quando clica em "Sim"
+      simRadio.addEventListener("change", function () {
+        if (simRadio.checked) {
+          divAcompanhante.style.display = "block";
+        }
+      });
+
+      // Quando clica em "Não"
+      naoRadio.addEventListener("change", function () {
+        if (naoRadio.checked) {
+          divAcompanhante.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
